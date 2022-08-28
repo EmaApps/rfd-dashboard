@@ -4,9 +4,9 @@ on:
   push:
     paths:
       - .github/workflows/flat.yaml
-      - ./data/postprocessing.ts
-      - ./data/postprocessing.sh
-      - ./data/axios.json
+      - data/postprocessing.ts
+      - data/postprocessing.sh
+      - data/axios.json
   schedule:
     - cron: 49 15 * * *
 jobs:
