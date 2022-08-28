@@ -17,6 +17,9 @@ jobs:
         uses: denolib/setup-deno@v2
       - name: Check out repo
         uses: actions/checkout@v2
+      - name: Testing curl
+        run: |
+          curl -v https://forums.redflagdeals.com/hot-deals-f9/trending/
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
