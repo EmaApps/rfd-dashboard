@@ -19,5 +19,5 @@ jobs:
         uses: githubocto/flat@v2
         with:
           http_url: https://forums.redflagdeals.com/hot-deals-f9/trending/
-          downloaded_filename: data.json
+          downloaded_filename: ./data/data.json
           postprocess: ./data/postprocessing.ts
