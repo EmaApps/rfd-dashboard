@@ -1,0 +1,23 @@
+name: Flat
+on:
+  workflow_dispatch: {}
+  push:
+    paths:
+      - .github/workflows/flat.yml
+      - ./data/postprocessing.ts
+  schedule:
+    - cron: 49 15 * * *
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup deno
+        uses: denolib/setup-deno@v2
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - name: Fetch data
+        uses: githubocto/flat@v2
+        with:
+          http_url: https://forums.redflagdeals.com/hot-deals-f9/trending/
+          downloaded_filename: data.json
+          postprocess: ./data/postprocessing.ts
