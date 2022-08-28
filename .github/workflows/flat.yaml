@@ -19,15 +19,11 @@ jobs:
           deno-version: v1.10.x
       - name: Check out repo
         uses: actions/checkout@v2
-      - name: Testing curl
-        run: |
-          curl -v https://forums.redflagdeals.com/hot-deals-f9/trending/
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
           # This fails. The bash script will download it instead.
           # http_url: https://forums.redflagdeals.com/hot-deals-f9/trending/
           http_url: https://example.com/
-          axios_config: ./data/axios.json
           downloaded_filename: ./data/data.json
           postprocess: ./data/postprocessing.ts
