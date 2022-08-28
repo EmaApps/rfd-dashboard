@@ -3,8 +3,10 @@ on:
   workflow_dispatch: {}
   push:
     paths:
-      - .github/workflows/flat.yml
+      - .github/workflows/flat.yaml
       - ./data/postprocessing.ts
+      - ./data/postprocessing.sh
+      - ./data/axios.json
   schedule:
     - cron: 49 15 * * *
 jobs:
@@ -16,7 +18,7 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v2
       - name: Fetch data
-        uses: githubocto/flat@v2
+        uses: githubocto/flat@v3
         with:
           http_url: https://forums.redflagdeals.com/hot-deals-f9/trending/
           axios_config: ./data/axios.json
